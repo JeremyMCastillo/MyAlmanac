@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CookieService } from 'ngx-cookie';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'MyAlmanac';
   name='';
+
+  constructor(private cookie:CookieService){}
+
+  ngOnInit(){
+    console.log(this.cookie.get('myalmanac_authtoken'));
+  }
 }
